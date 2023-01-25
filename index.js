@@ -15,10 +15,9 @@ app.get('/', (req, res) => {
 })
 
 app.post('/create-payment-intent', async (req, res) => {
-    const {booking }= req.body;
+    const booking = req.body;
     const price = booking.price;
     const amount = price * 100;
-    // console.log(booking,price)
 
     const paymentIntent = await stripe.paymentIntents.create({
       currency: 'usd',
